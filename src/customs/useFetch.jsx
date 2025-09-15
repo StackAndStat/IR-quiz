@@ -72,7 +72,8 @@ function useFetch() {
   useEffect(() => {
     async function fetchQuestion() {
       try {
-        const response = await fetch("/api/api/quiz");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}api/quiz`);
+
         const data = await response.json();
         dispatch({ type: "dataReceived", payload: data.questions });
       } catch (err) {
